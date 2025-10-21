@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dpg223ru3n4ra" path="res://scenes/characters/player/player.gd" id="1_t61fv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bcx1r"]
+radius = 17.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_t61fv")
