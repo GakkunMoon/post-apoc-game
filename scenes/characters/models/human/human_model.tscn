@@ -1,0 +1,155 @@
+[gd_scene load_steps=11 format=3 uid="uid://dyx8yselug77b"]
+
+[ext_resource type="Texture2D" uid="uid://cqquaumjxi5lp" path="res://assets/sprites/characters/human/foot.svg" id="1_qtr4q"]
+[ext_resource type="Texture2D" uid="uid://dhmr82afoc874" path="res://assets/sprites/characters/human/arm.svg" id="2_8jm5h"]
+[ext_resource type="Texture2D" uid="uid://dl8dpasb31in8" path="res://assets/sprites/characters/human/torso.svg" id="2_aawpy"]
+[ext_resource type="Texture2D" uid="uid://dv6gvtibur5eu" path="res://assets/sprites/characters/human/forearm.svg" id="3_2gacj"]
+[ext_resource type="Texture2D" uid="uid://0iykmn1idpfn" path="res://assets/sprites/characters/human/head.svg" id="3_8jm5h"]
+[ext_resource type="Texture2D" uid="uid://dc2fynka6fcqw" path="res://assets/sprites/characters/human/hand.svg" id="4_2gacj"]
+
+[sub_resource type="Animation" id="Animation_aawpy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Feet/FootR:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(9, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Feet/FootL:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-9, 5)]
+}
+
+[sub_resource type="Animation" id="Animation_qtr4q"]
+resource_name = "idle"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Feet/FootR:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(9, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Feet/FootL:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-9, 5)]
+}
+
+[sub_resource type="Animation" id="Animation_8jm5h"]
+resource_name = "walk"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Feet/FootR:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(9, 5), Vector2(9, 12), Vector2(9, 5), Vector2(9, -5), Vector2(9, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Feet/FootL:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-9, 5), Vector2(-9, -5), Vector2(-9, 5), Vector2(-9, 12), Vector2(-9, 5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2gacj"]
+_data = {
+&"RESET": SubResource("Animation_aawpy"),
+&"idle": SubResource("Animation_qtr4q"),
+&"walk": SubResource("Animation_8jm5h")
+}
+
+[node name="HumanModel" type="Node2D"]
+
+[node name="Feet" type="Node2D" parent="."]
+
+[node name="FootR" type="Sprite2D" parent="Feet"]
+position = Vector2(9, 5)
+texture = ExtResource("1_qtr4q")
+
+[node name="FootL" type="Sprite2D" parent="Feet"]
+position = Vector2(-9, 5)
+texture = ExtResource("1_qtr4q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Feet"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_2gacj")
+}
+blend_times = [&"idle", &"idle", 0.2, &"idle", &"walk", 0.2, &"walk", &"idle", 0.2, &"walk", &"walk", 0.2]
+
+[node name="Torso" type="Node2D" parent="."]
+
+[node name="Arms" type="Node2D" parent="Torso"]
+position = Vector2(0, 1)
+
+[node name="ArmR" type="Sprite2D" parent="Torso/Arms"]
+position = Vector2(15, 0)
+rotation = 1.5707964
+texture = ExtResource("2_8jm5h")
+
+[node name="Forearm" type="Sprite2D" parent="Torso/Arms/ArmR"]
+position = Vector2(0, -14)
+texture = ExtResource("3_2gacj")
+
+[node name="Hand" type="Sprite2D" parent="Torso/Arms/ArmR/Forearm"]
+position = Vector2(0, -18)
+texture = ExtResource("4_2gacj")
+
+[node name="ArmL" type="Sprite2D" parent="Torso/Arms"]
+position = Vector2(-15, 0)
+rotation = -1.5707964
+texture = ExtResource("2_8jm5h")
+
+[node name="Forearm" type="Sprite2D" parent="Torso/Arms/ArmL"]
+position = Vector2(0, -14)
+texture = ExtResource("3_2gacj")
+
+[node name="Hand" type="Sprite2D" parent="Torso/Arms/ArmL/Forearm"]
+position = Vector2(0, -18)
+texture = ExtResource("4_2gacj")
+
+[node name="Chest" type="Sprite2D" parent="Torso"]
+texture = ExtResource("2_aawpy")
+
+[node name="Head" type="Sprite2D" parent="."]
+texture = ExtResource("3_8jm5h")
