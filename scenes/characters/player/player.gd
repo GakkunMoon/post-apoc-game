@@ -9,12 +9,14 @@ var current_state: PlayerState
 var target_direction: Vector2 = Vector2.ZERO
 var target_look_rotation: float
 
-@onready var head_model: Sprite2D = $HumanModel/Head
-@onready var torso_model: Node2D = $HumanModel/Torso
-@onready var feet_anim: AnimationPlayer = $HumanModel/Feet/AnimationPlayer
+@onready var human_model: HumanModel = $HumanModel
+@onready var camera: Camera2D = $Camera/Camera2D
 
 func _input(event: InputEvent) -> void:
 	target_direction = Input.get_vector("left", "right", "up", "down")
+	
+	if Input.is_action_just_pressed("shoot"):
+		human_model.fire_gun()
 
 func _ready() -> void:
 	change_state("Idle")
@@ -25,34 +27,44 @@ func _process(delta: float) -> void:
 	
 	var target_look_vector: Vector2 = (get_global_mouse_position() - global_position).normalized()
 	target_look_rotation = atan2(target_look_vector.y, target_look_vector.x)
-	head_model.rotation = lerp_angle(
-		head_model.rotation,
+	human_model.head.rotation = lerp_angle(
+		human_model.head.rotation,
 		target_look_rotation + deg_to_rad(90),
-		delta * 10)
-	torso_model.rotation = lerp_angle(
-		torso_model.rotation,
+		delta * 10
+	)
+	human_model.torso.rotation = lerp_angle(
+		human_model.torso.rotation,
 		target_look_rotation + deg_to_rad(90),
-		delta * 5)
+		delta * 5
+	)
 	
 	if target_direction:
-		feet_anim.play("walk")
+		human_model.feet_anim.play("walk")
 		var target_move_rotation: float = atan2(target_direction.y, target_direction.x) + deg_to_rad(90)
-		$HumanModel/Feet.rotation = lerp_angle(
-			$HumanModel/Feet.rotation,
+		human_model.feet.rotation = lerp_angle(
+			human_model.feet.rotation,
 			target_move_rotation,
-			delta * 5)
+			delta * 5
+		)
 	else:
-		feet_anim.play("idle")
-		$HumanModel/Feet.rotation = lerp_angle(
-			$HumanModel/Feet.rotation,
+		human_model.feet_anim.play("idle")
+		human_model.feet.rotation = lerp_angle(
+			human_model.feet.rotation,
 			target_look_rotation + deg_to_rad(90),
-			delta * 3)
+			delta * 3
+		)
 
 func _physics_process(delta: float) -> void:
 	if current_state:
 		current_state.on_physics_process(delta)
 	
 	velocity = target_direction * move_speed
+	
+	var camera_pos: Vector2 = Vector2(
+		(get_global_mouse_position().x + global_position.x) / 2,
+		(get_global_mouse_position().y + global_position.y) / 2
+	)
+	camera.global_position = lerp(camera.global_position, camera_pos, delta)
 	
 	move_and_slide()
 

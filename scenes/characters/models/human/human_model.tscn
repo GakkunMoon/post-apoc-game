@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://dyx8yselug77b"]
+[gd_scene load_steps=21 format=3 uid="uid://dyx8yselug77b"]
 
+[ext_resource type="Script" uid="uid://d3jtg2tq5wp25" path="res://scenes/characters/models/human/human_model.gd" id="1_bsc6w"]
 [ext_resource type="Texture2D" uid="uid://cqquaumjxi5lp" path="res://assets/sprites/characters/human/foot.svg" id="1_qtr4q"]
 [ext_resource type="Texture2D" uid="uid://dhmr82afoc874" path="res://assets/sprites/characters/human/arm.svg" id="2_8jm5h"]
 [ext_resource type="Texture2D" uid="uid://dl8dpasb31in8" path="res://assets/sprites/characters/human/torso.svg" id="2_aawpy"]
@@ -106,7 +107,7 @@ joint_data/0/bone_index = 1
 joint_data/0/bone2d_node = NodePath("Torso/ArmR")
 joint_data/0/rotate_from_joint = false
 joint_data/0/enable_constraint = true
-joint_data/0/constraint_angle_min = 224.99998
+joint_data/0/constraint_angle_min = 224.99995
 joint_data/0/constraint_angle_max = 360.0
 joint_data/0/constraint_angle_invert = false
 joint_data/0/constraint_in_localspace = true
@@ -115,8 +116,8 @@ joint_data/1/bone_index = 2
 joint_data/1/bone2d_node = NodePath("Torso/ArmR/ForearmR")
 joint_data/1/rotate_from_joint = false
 joint_data/1/enable_constraint = true
-joint_data/1/constraint_angle_min = 224.99998
-joint_data/1/constraint_angle_max = 349.99997
+joint_data/1/constraint_angle_min = 224.99995
+joint_data/1/constraint_angle_max = 349.9999
 joint_data/1/constraint_angle_invert = false
 joint_data/1/constraint_in_localspace = true
 joint_data/1/editor_draw_gizmo = true
@@ -139,7 +140,7 @@ joint_data/0/bone2d_node = NodePath("Torso/ArmL")
 joint_data/0/rotate_from_joint = false
 joint_data/0/enable_constraint = true
 joint_data/0/constraint_angle_min = 180.0
-joint_data/0/constraint_angle_max = 314.99997
+joint_data/0/constraint_angle_max = 314.9999
 joint_data/0/constraint_angle_invert = false
 joint_data/0/constraint_in_localspace = true
 joint_data/0/editor_draw_gizmo = true
@@ -147,7 +148,7 @@ joint_data/1/bone_index = 5
 joint_data/1/bone2d_node = NodePath("Torso/ArmL/ForearmL")
 joint_data/1/rotate_from_joint = false
 joint_data/1/enable_constraint = true
-joint_data/1/constraint_angle_min = 9.999999
+joint_data/1/constraint_angle_min = 9.999997
 joint_data/1/constraint_angle_max = 135.0
 joint_data/1/constraint_angle_invert = false
 joint_data/1/constraint_in_localspace = true
@@ -168,7 +169,179 @@ modification_count = 2
 modifications/0 = SubResource("SkeletonModification2DCCDIK_2gacj")
 modifications/1 = SubResource("SkeletonModification2DCCDIK_bsc6w")
 
+[sub_resource type="Animation" id="Animation_bsc6w"]
+resource_name = "pistol"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Torso/IKTargets/Right:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -41)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Torso/IKTargets/Left:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -41)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Torso/IKTargets/Pistol:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Torso/IKTargets/Rifle:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_8s0i2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Torso/IKTargets/Right:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(100, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Torso/IKTargets/Left:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-100, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Torso/IKTargets/Pistol:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Torso/IKTargets/Rifle:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_2fd5s"]
+resource_name = "rifle"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Torso/IKTargets/Left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, -48)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Torso/IKTargets/Right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, -19)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Torso/IKTargets/Pistol:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Torso/IKTargets/Rifle:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8s0i2"]
+_data = {
+&"RESET": SubResource("Animation_8s0i2"),
+&"pistol": SubResource("Animation_bsc6w"),
+&"rifle": SubResource("Animation_2fd5s")
+}
+
+[sub_resource type="Gradient" id="Gradient_t61fv"]
+offsets = PackedFloat32Array(0.32225913, 0.68438536)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bsc6w"]
+gradient = SubResource("Gradient_t61fv")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="HumanModel" type="Node2D"]
+script = ExtResource("1_bsc6w")
 
 [node name="Feet" type="Node2D" parent="."]
 
@@ -194,36 +367,36 @@ position = Vector2(0, 1)
 
 [node name="ArmR" type="Sprite2D" parent="Torso/Arms"]
 position = Vector2(16, 2)
-rotation = 1.5707965
-scale = Vector2(0.99998266, 0.99998266)
+rotation = -0.23549938
+scale = Vector2(0.9999829, 0.9999829)
 texture = ExtResource("2_8jm5h")
 
 [node name="Forearm" type="Sprite2D" parent="Torso/Arms/ArmR"]
-position = Vector2(1.4305115e-06, -11.000027)
-rotation = -0.17453317
-scale = Vector2(1.0000058, 1.0000058)
+position = Vector2(1.9073486e-06, -13.000005)
+rotation = -0.17453414
+scale = Vector2(1.0000061, 1.0000061)
 texture = ExtResource("3_2gacj")
 
 [node name="Hand" type="Sprite2D" parent="Torso/Arms/ArmR/Forearm"]
-position = Vector2(6.67572e-06, -19.000011)
-scale = Vector2(1.000011, 1.000011)
+position = Vector2(-3.8146973e-06, -19.000002)
+scale = Vector2(1.0000118, 1.0000118)
 texture = ExtResource("4_2gacj")
 
 [node name="ArmL" type="Sprite2D" parent="Torso/Arms"]
 position = Vector2(-16, 2)
-rotation = -1.5707961
-scale = Vector2(0.9999765, 0.9999765)
+rotation = 0.2354995
+scale = Vector2(0.99997735, 0.99997735)
 texture = ExtResource("2_8jm5h")
 
 [node name="Forearm" type="Sprite2D" parent="Torso/Arms/ArmL"]
-position = Vector2(6.0796738e-05, -11.000113)
-rotation = 0.17453295
-scale = Vector2(1.0000079, 1.0000079)
+position = Vector2(5.722046e-06, -13.000011)
+rotation = 0.17453289
+scale = Vector2(1.0000095, 1.0000095)
 texture = ExtResource("3_2gacj")
 
 [node name="Hand" type="Sprite2D" parent="Torso/Arms/ArmL/Forearm"]
-position = Vector2(-3.862381e-05, -19.000187)
-scale = Vector2(1.0000051, 1.0000051)
+position = Vector2(3.8146973e-06, -19.000051)
+scale = Vector2(1.0000026, 1.0000026)
 texture = ExtResource("4_2gacj")
 
 [node name="Chest" type="Sprite2D" parent="Torso"]
@@ -245,9 +418,9 @@ editor_settings/show_bone_gizmo = false
 metadata/_local_pose_override_enabled_ = true
 
 [node name="ForearmR" type="Bone2D" parent="Torso/Skeleton2D/Torso/ArmR"]
-position = Vector2(11, 0)
-rotation = -0.17453316
-scale = Vector2(1.0000068, 1.0000068)
+position = Vector2(13, 0)
+rotation = -0.17453416
+scale = Vector2(1.0000061, 1.0000061)
 rest = Transform2D(1, 0, 0, 1, 14, 0)
 editor_settings/show_bone_gizmo = false
 metadata/_local_pose_override_enabled_ = true
@@ -289,9 +462,9 @@ editor_settings/show_bone_gizmo = false
 metadata/_local_pose_override_enabled_ = true
 
 [node name="ForearmL" type="Bone2D" parent="Torso/Skeleton2D/Torso/ArmL"]
-position = Vector2(11, 0)
-rotation = 0.7857804
-scale = Vector2(1.0000104, 1.0000104)
+position = Vector2(13, 0)
+rotation = 0.17453289
+scale = Vector2(1.0000095, 1.0000095)
 rest = Transform2D(1, 0, 0, 1, 14, 0)
 editor_settings/show_bone_gizmo = false
 metadata/_local_pose_override_enabled_ = true
@@ -329,6 +502,41 @@ position = Vector2(100, 0)
 
 [node name="Left" type="Marker2D" parent="Torso/IKTargets"]
 position = Vector2(-100, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Torso/IKTargets"]
+root_node = NodePath("../../..")
+libraries = {
+&"": SubResource("AnimationLibrary_8s0i2")
+}
+autoplay = "pistol"
+
+[node name="Pistol" type="Sprite2D" parent="Torso/IKTargets"]
+visible = false
+self_modulate = Color(0.15, 0.15, 0.15, 1)
+position = Vector2(0, -30)
+scale = Vector2(0.6, 1)
+texture = ExtResource("3_2gacj")
+
+[node name="Rifle" type="Sprite2D" parent="Torso/IKTargets"]
+visible = false
+self_modulate = Color(0.15, 0.15, 0.15, 1)
+position = Vector2(2.5, -17)
+rotation = -0.017453292
+scale = Vector2(0.6, 2.5)
+texture = ExtResource("3_2gacj")
+
+[node name="Flash" type="PointLight2D" parent="Torso/IKTargets"]
+z_index = 10
+z_as_relative = false
+position = Vector2(0, -65)
+enabled = false
+energy = 0.7
+texture = SubResource("GradientTexture2D_bsc6w")
+texture_scale = 1.5
+
+[node name="Timer" type="Timer" parent="Torso/IKTargets/Flash"]
+wait_time = 0.05
+one_shot = true
 
 [node name="Head" type="Sprite2D" parent="."]
 texture = ExtResource("3_8jm5h")

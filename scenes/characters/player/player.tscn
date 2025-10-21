@@ -8,12 +8,10 @@ radius = 17.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_t61fv")
+move_speed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_bcx1r")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.8, 0.8)
 
 [node name="HumanModel" parent="." instance=ExtResource("1_7uws0")]
 
@@ -22,3 +20,8 @@ zoom = Vector2(0.8, 0.8)
 [node name="Idle" type="Node" parent="States"]
 
 [node name="Move" type="Node" parent="States"]
+
+[node name="Camera" type="Node" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="Camera"]
+zoom = Vector2(0.8, 0.8)
