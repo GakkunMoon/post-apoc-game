@@ -12,6 +12,6 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="Bullet" type="Sprite2D"]
-scale = Vector2(0.08, 2)
+scale = Vector2(0.1, 2.5)
 texture = SubResource("GradientTexture2D_53por")
 script = ExtResource("1_53por")

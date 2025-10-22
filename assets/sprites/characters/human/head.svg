@@ -25,7 +25,7 @@
      inkscape:document-units="px"
      showgrid="true"
      inkscape:zoom="16"
-     inkscape:cx="27.3125"
+     inkscape:cx="27.34375"
      inkscape:cy="32.71875"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
@@ -74,7 +74,7 @@
      id="layer1">
     <path
        id="path2"
-       style="fill:#ffffff;stroke-width:2.64566;stroke-miterlimit:9;paint-order:fill markers stroke"
+       style="fill:#cccccc;stroke-width:2.64566;stroke-miterlimit:9;paint-order:fill markers stroke"
        d="m 32.000002,17.000564 7,3.221662 2.899496,7.777775 -2.899496,7.777774 L 32,38.999442 25,35.777775 22.100504,28.000001 25,20.222226 Z" />
   </g>
 </svg>

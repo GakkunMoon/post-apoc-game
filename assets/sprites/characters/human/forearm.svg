@@ -25,8 +25,8 @@
      inkscape:document-units="px"
      showgrid="true"
      inkscape:zoom="22.627418"
-     inkscape:cx="26.737474"
-     inkscape:cy="24.196309"
+     inkscape:cx="26.759571"
+     inkscape:cy="24.152115"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="-8"
@@ -90,7 +90,7 @@
      id="layer1">
     <path
        id="path2"
-       style="fill:#ffffff;stroke-width:2.64567;stroke-miterlimit:9;paint-order:fill markers stroke"
+       style="fill:#cccccc;stroke-width:2.64567;stroke-miterlimit:9;paint-order:fill markers stroke"
        d="m 32,12 3,2 2,11 -1,9 -4,2 -4,-2 -1,-9 2,-11 z"
        sodipodi:nodetypes="ccccccccc" />
   </g>
