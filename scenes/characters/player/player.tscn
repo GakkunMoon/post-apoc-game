@@ -1,12 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1txjxaw5d63q"]
+[gd_scene load_steps=6 format=3 uid="uid://d1txjxaw5d63q"]
 
 [ext_resource type="PackedScene" uid="uid://dyx8yselug77b" path="res://scenes/characters/models/human/human_model.tscn" id="1_7uws0"]
 [ext_resource type="Script" uid="uid://dpg223ru3n4ra" path="res://scenes/characters/player/player.gd" id="1_t61fv"]
+[ext_resource type="PackedScene" uid="uid://bwttv7f1pgsvc" path="res://scenes/elements/hurt_box/hurt_box.tscn" id="3_686vu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bcx1r"]
-radius = 17.0
+radius = 20.0
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_hss88"]
+radius = 15.0
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+z_index = 10
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_t61fv")
 move_speed = null
 
@@ -25,3 +32,10 @@ shape = SubResource("CircleShape2D_bcx1r")
 
 [node name="Camera2D" type="Camera2D" parent="Camera"]
 zoom = Vector2(0.8, 0.8)
+
+[node name="HurtBox" parent="." instance=ExtResource("3_686vu")]
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("CircleShape2D_hss88")
+
+[editable path="HurtBox"]

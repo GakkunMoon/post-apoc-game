@@ -107,7 +107,7 @@ joint_data/0/bone_index = 1
 joint_data/0/bone2d_node = NodePath("Torso/ArmR")
 joint_data/0/rotate_from_joint = false
 joint_data/0/enable_constraint = true
-joint_data/0/constraint_angle_min = 224.99995
+joint_data/0/constraint_angle_min = 224.99994
 joint_data/0/constraint_angle_max = 360.0
 joint_data/0/constraint_angle_invert = false
 joint_data/0/constraint_in_localspace = true
@@ -116,8 +116,8 @@ joint_data/1/bone_index = 2
 joint_data/1/bone2d_node = NodePath("Torso/ArmR/ForearmR")
 joint_data/1/rotate_from_joint = false
 joint_data/1/enable_constraint = true
-joint_data/1/constraint_angle_min = 224.99995
-joint_data/1/constraint_angle_max = 349.9999
+joint_data/1/constraint_angle_min = 224.99994
+joint_data/1/constraint_angle_max = 349.99988
 joint_data/1/constraint_angle_invert = false
 joint_data/1/constraint_in_localspace = true
 joint_data/1/editor_draw_gizmo = true
@@ -140,7 +140,7 @@ joint_data/0/bone2d_node = NodePath("Torso/ArmL")
 joint_data/0/rotate_from_joint = false
 joint_data/0/enable_constraint = true
 joint_data/0/constraint_angle_min = 180.0
-joint_data/0/constraint_angle_max = 314.9999
+joint_data/0/constraint_angle_max = 314.99988
 joint_data/0/constraint_angle_invert = false
 joint_data/0/constraint_in_localspace = true
 joint_data/0/editor_draw_gizmo = true
@@ -148,7 +148,7 @@ joint_data/1/bone_index = 5
 joint_data/1/bone2d_node = NodePath("Torso/ArmL/ForearmL")
 joint_data/1/rotate_from_joint = false
 joint_data/1/enable_constraint = true
-joint_data/1/constraint_angle_min = 9.999997
+joint_data/1/constraint_angle_min = 9.999996
 joint_data/1/constraint_angle_max = 135.0
 joint_data/1/constraint_angle_invert = false
 joint_data/1/constraint_in_localspace = true
@@ -168,6 +168,57 @@ enabled = true
 modification_count = 2
 modifications/0 = SubResource("SkeletonModification2DCCDIK_2gacj")
 modifications/1 = SubResource("SkeletonModification2DCCDIK_bsc6w")
+
+[sub_resource type="Animation" id="Animation_8s0i2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Torso/IKTargets/Right:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(100, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Torso/IKTargets/Left:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-100, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Torso/IKTargets/Pistol:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Torso/IKTargets/Rifle:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_bsc6w"]
 resource_name = "pistol"
@@ -207,57 +258,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Torso/IKTargets/Rifle:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_8s0i2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Torso/IKTargets/Right:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(100, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Torso/IKTargets/Left:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-100, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Torso/IKTargets/Pistol:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -341,15 +341,18 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="HumanModel" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_bsc6w")
 
 [node name="Feet" type="Node2D" parent="."]
 
 [node name="FootR" type="Sprite2D" parent="Feet"]
+texture_filter = 1
 position = Vector2(9, 5)
 texture = ExtResource("1_qtr4q")
 
 [node name="FootL" type="Sprite2D" parent="Feet"]
+texture_filter = 1
 position = Vector2(-9, 5)
 texture = ExtResource("1_qtr4q")
 
@@ -366,40 +369,43 @@ blend_times = [&"idle", &"idle", 0.2, &"idle", &"walk", 0.2, &"walk", &"idle", 0
 position = Vector2(0, 1)
 
 [node name="ArmR" type="Sprite2D" parent="Torso/Arms"]
+texture_filter = 1
 position = Vector2(16, 2)
-rotation = -0.23549938
-scale = Vector2(0.9999829, 0.9999829)
+rotation = 1.5707965
+scale = Vector2(0.9999827, 0.9999827)
 texture = ExtResource("2_8jm5h")
 
 [node name="Forearm" type="Sprite2D" parent="Torso/Arms/ArmR"]
-position = Vector2(1.9073486e-06, -13.000005)
-rotation = -0.17453414
-scale = Vector2(1.0000061, 1.0000061)
+position = Vector2(0.00046014786, -13)
+rotation = -0.17453463
+scale = Vector2(0.99999803, 0.99999803)
 texture = ExtResource("3_2gacj")
 
 [node name="Hand" type="Sprite2D" parent="Torso/Arms/ArmR/Forearm"]
-position = Vector2(-3.8146973e-06, -19.000002)
-scale = Vector2(1.0000118, 1.0000118)
+position = Vector2(-0.00018262863, -19.000072)
+scale = Vector2(1.0000099, 1.0000099)
 texture = ExtResource("4_2gacj")
 
 [node name="ArmL" type="Sprite2D" parent="Torso/Arms"]
+texture_filter = 1
 position = Vector2(-16, 2)
-rotation = 0.2354995
-scale = Vector2(0.99997735, 0.99997735)
+rotation = -1.5707961
+scale = Vector2(0.9999781, 0.9999781)
 texture = ExtResource("2_8jm5h")
 
 [node name="Forearm" type="Sprite2D" parent="Torso/Arms/ArmL"]
-position = Vector2(5.722046e-06, -13.000011)
-rotation = 0.17453289
-scale = Vector2(1.0000095, 1.0000095)
+position = Vector2(-7.1525574e-07, -13)
+rotation = 0.17453286
+scale = Vector2(1.0000094, 1.0000094)
 texture = ExtResource("3_2gacj")
 
 [node name="Hand" type="Sprite2D" parent="Torso/Arms/ArmL/Forearm"]
-position = Vector2(3.8146973e-06, -19.000051)
-scale = Vector2(1.0000026, 1.0000026)
+position = Vector2(-4.7683716e-07, -19.000004)
+scale = Vector2(1.0000021, 1.0000021)
 texture = ExtResource("4_2gacj")
 
 [node name="Chest" type="Sprite2D" parent="Torso"]
+texture_filter = 1
 texture = ExtResource("2_aawpy")
 
 [node name="Skeleton2D" type="Skeleton2D" parent="Torso"]
@@ -530,13 +536,14 @@ z_index = 10
 z_as_relative = false
 position = Vector2(0, -65)
 enabled = false
-energy = 0.7
+energy = 1.5
 texture = SubResource("GradientTexture2D_bsc6w")
-texture_scale = 1.5
+texture_scale = 2.0
 
 [node name="Timer" type="Timer" parent="Torso/IKTargets/Flash"]
 wait_time = 0.05
 one_shot = true
 
 [node name="Head" type="Sprite2D" parent="."]
+texture_filter = 1
 texture = ExtResource("3_8jm5h")
